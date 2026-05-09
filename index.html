@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kauany Store</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ffb6c1, #fff5f7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* FUNDO DECORATIVO */
+      body::before {
+        content: "💖 🐱 💕 🐱 💖 🐱 💕 🐱 💖 🐱 💕 🐱 💖 🐱 💕 🐱";
+        position: absolute;
+        font-size: 32px;
+        opacity: 0.15;
+        top: 0;
+        left: 0;
+        width: 300%;
+        height: 300%;
+        line-height: 90px;
+        white-space: pre-wrap;
+        animation: mover 25s linear infinite;
+      }
+
+      @keyframes mover {
+        from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(-40%, -10%);
+        }
+      }
+
+      .card {
+        width: 100%;
+        max-width: 450px;
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        border-top: 6px solid #ffd54f;
+        box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
+        z-index: 2;
+      }
+
+      .topo {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .topo h1 {
+        color: #ff4f87;
+        font-size: 28px;
+      }
+
+      .laco {
+        font-size: 24px;
+      }
+
+      .topo p {
+        color: #777;
+        margin-top: 5px;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        color: #ff4f87;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 2px solid #ffd6e0;
+        outline: none;
+        background: #fffafb;
+      }
+
+      input:focus {
+        border-color: #ffd54f;
+        box-shadow: 0 0 8px rgba(255, 213, 79, 0.4);
+      }
+
+      button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #ff69b4, #ffd54f);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        opacity: 0.9;
+        transform: scale(1.02);
+      }
+
+      .resultado {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 12px;
+        background-color: #fff9e6;
+        border-left: 6px solid #ffd54f;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="topo">
+        <h1>Kauany Store <span class="laco">🎀</span></h1>
+        <p>Cadastro de clientes</p>
+      </div>
+
+      <form id="formCadastro">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          placeholder="Digite seu nome"
+          required
+          minlength="3"
+        />
+
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Digite seu e-mail"
+          required
+        />
+
+        <label for="idade">Idade</label>
+        <input
+          type="number"
+          id="idade"
+          placeholder="Digite sua idade"
+          required
+          min="0"
+          max="120"
+        />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+
+      <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+      const form = document.getElementById("formCadastro");
+      const resultado = document.getElementById("resultado");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        const idade = document.getElementById("idade").value;
+
+        resultado.innerHTML = `
+                <h3>Cadastro realizado com sucesso!</h3>
+                <p><strong>Nome:</strong> ${nome}</p>
+                <p><strong>E-mail:</strong> ${email}</p>
+                <p><strong>Idade:</strong> ${idade}</p>
+            `;
+      });
+    </script>
+  </body>
+</html>
