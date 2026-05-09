@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kauany Store</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="topo">
+        <h1>Kauany Store <span class="laco">🎀</span></h1>
+        <p>Cadastro de clientes</p>
+      </div>
+
+      <form>
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          placeholder="Digite seu nome"
+          required
+          minlength="3"
+        />
+
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Digite seu e-mail"
+          required
+        />
+
+        <label for="idade">Idade</label>
+        <input
+          type="number"
+          id="idade"
+          placeholder="Digite sua idade"
+          required
+          min="0"
+          max="120"
+        />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>
